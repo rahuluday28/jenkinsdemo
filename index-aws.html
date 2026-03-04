@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to AWS - Nginx (v2.0 Updated)</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #FF9900 0%, #232F3E 100%);
+            margin: 0; 
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .box { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 10px; 
+            max-width: 600px; 
+            margin: 50px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 { 
+            color: #FF9900;
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .info { 
+            background: #FFF3E0; 
+            padding: 15px; 
+            margin: 15px 0;
+            border-left: 5px solid #FF9900;
+            border-radius: 3px;
+        }
+        .label {
+            font-weight: bold;
+            color: #232F3E;
+        }
+        .value {
+            color: #333;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>☁️ Welcome to AWS</h1>
+        <div class="info">
+            <span class="label">Hostname:</span> <span class="value">{{ inventory_hostname }}</span><br>
+            <span class="label">IP Address:</span> <span class="value">{{ ansible_default_ipv4.address }}</span><br>
+            <span class="label">Platform:</span> <span class="value">Amazon Web Services (AWS)</span><br>
+            <span class="label">OS:</span> <span class="value">{{ ansible_distribution }} {{ ansible_distribution_version }}</span><br>
+            <span class="label">Deployment:</span> <span class="value">{{ ansible_date_time.iso8601 }}</span>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="color: #FF9900; font-weight: bold;">Nginx Web Server Running on AWS EC2</p>
+        </div>
+        <div class="footer">
+            <p>This is an AWS EC2 instance managed by Ansible</p>
+        </div>
+    </div>
+</body>
+</html>

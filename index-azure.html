@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Azure - Nginx (v2.0 Updated)</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #0078D4 0%, #00A4EF 100%);
+            margin: 0; 
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .box { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 10px; 
+            max-width: 600px; 
+            margin: 50px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 { 
+            color: #0078D4;
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .info { 
+            background: #E7F3FF; 
+            padding: 15px; 
+            margin: 15px 0;
+            border-left: 5px solid #0078D4;
+            border-radius: 3px;
+        }
+        .label {
+            font-weight: bold;
+            color: #0078D4;
+        }
+        .value {
+            color: #333;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>☁️ Welcome to Azure</h1>
+        <div class="info">
+            <span class="label">Hostname:</span> <span class="value">{{ inventory_hostname }}</span><br>
+            <span class="label">IP Address:</span> <span class="value">{{ ansible_default_ipv4.address }}</span><br>
+            <span class="label">Platform:</span> <span class="value">Microsoft Azure Cloud</span><br>
+            <span class="label">OS:</span> <span class="value">{{ ansible_distribution }} {{ ansible_distribution_version }}</span><br>
+            <span class="label">Deployment:</span> <span class="value">{{ ansible_date_time.iso8601 }}</span>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="color: #0078D4; font-weight: bold;">Nginx Web Server Running on Azure VM</p>
+        </div>
+        <div class="footer">
+            <p>This is an Azure Virtual Machine managed by Ansible</p>
+        </div>
+    </div>
+</body>
+</html>
